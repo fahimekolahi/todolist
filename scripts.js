@@ -10,7 +10,8 @@ let editToDoId = null
 function addNewToDo(toDoText) {
     let newToDoObj = {
         id: Date.now() * Math.random(),
-        text: toDoText
+        text: toDoText,
+        isComplete : false
     }
 
     toDoList.push(newToDoObj)
@@ -84,22 +85,22 @@ function render() {
     let empty = ""
     toDoList.forEach(item => {
         empty += `
-<div class="flex items-center gap-1">
+<div class="flex items-center gap-1 mx-auto ">
+<input type="checkbox" class=" w-[1.5rem] h-[1.5rem] bg-white ">
 
-<div class="w-[5rem] h-[2rem] bg-[#565656]>
-<p> ${item.text}</p>
- </div>
+<p class="bg-white rounded-[20px] p-[5px] m-[10px] w-[18rem]"> ${item.text}</p>
+ 
 
 
-<div>
-<button onclick="btnDelete(${item.id})">
+<div class="flex gap-5">
+<button onclick="btnDelete(${item.id})" class="bg-[#FF8996] bg-opacity-60 rounded-[20px] w-[5rem]">
 
 delete it
 </button>
 
 
 
-<button onclick="btnEdit(${item.id})">
+<button onclick="btnEdit(${item.id})" class="bg-[#FF8996] bg-opacity-60 rounded-[20px] w-[5rem]">
 
 
 
